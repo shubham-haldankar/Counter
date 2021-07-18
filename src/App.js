@@ -1,20 +1,24 @@
 import './App.css';
-import {useState} from 'react';
+import {Component} from 'react';
 
-function App() {
-  let [number,setNumber] = useState(0);
-  return (
+class App extends Component {
+  constructor(){
+    super();
+    this.state= {number:0}
+  }
+  render(){
+  return(
     <div className="App">
       <header className="App-header">
         <h1>Counter</h1>
-        <h1>{number}</h1>
+        <h1>{this.state.number}</h1>
         <div className="Buttons">
-        <button onClick= {()=> setNumber(number+1)}><h2>+</h2></button>
-        <button onClick= {()=> number===0 ? 0 : setNumber(number-1)}><h2>-</h2></button>
+        <button onClick= {()=> this.setState({number:this.state.number+1})}><h2>+</h2></button>
+        <button onClick= {()=> this.state.number===0 ? 0 : this.setState({number:this.state.number-1})}><h2>-</h2></button>
         </div>
       </header>
-    </div>
-  );
+    </div>)
+  }
 }
 
 export default App;
